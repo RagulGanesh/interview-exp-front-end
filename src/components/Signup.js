@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export const Signup = () => {
@@ -8,15 +7,22 @@ export const Signup = () => {
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
     const Navigate=useNavigate();
-    const handleSubmit=(e)=>{
+    const handleSubmit=async (e)=>{
         e.preventDefault();
-    axios
-      .post("https://4000/register", { rollno,username,email,password })
-      .then(response => {
-        console.log(response)
-        // Handle response
-      })
-      Navigate('/home');
+        await fetch("http://localhost:4000/register",{
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type' : 'application/json',
+          },
+          body : JSON.stringify({
+            rollno: rollno,
+            username : username,
+            email :email,
+            password :password,
+          })
+        })
+      // Navigate('/home');
     }
   return (
     <div className='mt-5 d-flex flex-column  justify-content-center container w-50 border border-dark p-3 border-2 rounded'>
