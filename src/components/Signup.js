@@ -16,13 +16,13 @@ export const Signup = () => {
             'Content-Type' : 'application/json',
           },
           body : JSON.stringify({
-            rollno: rollno,
-            username : username,
-            email :email,
-            password :password,
+            rollno,
+            username,
+            email,
+            password
           })
         })
-      // Navigate('/home');
+      Navigate('/home');
     }
   return (
     <div className='mt-5 d-flex flex-column  justify-content-center container w-50 border border-dark p-3 border-2 rounded'>
