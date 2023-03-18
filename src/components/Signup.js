@@ -9,7 +9,7 @@ export const Signup = () => {
     const Navigate=useNavigate();
     const handleSubmit=async (e)=>{
         e.preventDefault();
-        await fetch("http://localhost:4000/register",{
+        const res=await fetch("http://localhost:4000/register",{
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -22,7 +22,9 @@ export const Signup = () => {
             password
           })
         })
-      Navigate('/home');
+        Navigate('/home');
+
+       
     }
   return (
     <div className='mt-5 d-flex flex-column  justify-content-center container w-50 border border-dark p-3 border-2 rounded'>
