@@ -14,10 +14,10 @@ export const Signup = () => {
           setValidate('Password should contain atleast 8 characters');
           return;
         }
-        if(!email.match("^[a-zA-Z0-9]*@cbit\.org\.in$")){
-          setValidate("Enter correct email");
-          return;
-        }
+        // if(!email.match("^[a-zA-Z0-9]*@cbit\.org\.in$")){
+        //   setValidate("Enter correct email");
+        //   return;
+        // }
 
         const response=await fetch("http://localhost:4000/register",{
           method: 'POST',
@@ -38,7 +38,7 @@ export const Signup = () => {
         
          
           if(json.success){
-            
+            localStorage.setItem('token',json.authtoken)
            Navigate('/home');
             console.log("Account created successfully","success")
           }
