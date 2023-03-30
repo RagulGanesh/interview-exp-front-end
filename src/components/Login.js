@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import "../static/style.css"
+import "../static/Login.css"
+import "../static/utils.css"
+
 import { Link, useNavigate } from 'react-router-dom';
 export const Login = () => {
   const [rollno,setRollno]=useState('');

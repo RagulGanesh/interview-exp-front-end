@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import "../static/Signup.css"
+import "../static/utils.css"
 
 export const Signup = () => {
     const [username,setUsername]=useState('');
@@ -49,7 +51,7 @@ export const Signup = () => {
        
     }
   return (
-    <div className='mt-5 d-flex flex-column  justify-content-center container w-50 border border-dark p-3 border-2 rounded'>
+    <div className='cont mt-5 d-flex flex-column bg_col justify-content-center container border p-3 border-2'>
       <h1 className='text-center'>Sign Up</h1>
       <form onSubmit={handleSubmit} className='d-flex flex-column gap-3 justify-content-between'>
         <label htmlFor="name">User Name :</label>
@@ -60,8 +62,8 @@ export const Signup = () => {
         <input value={email} onChange={e=>{setEmail(e.target.value)}} className='form-control' type="text" id='email' placeholder='Enter Your Email'/>
         <label htmlFor="password">Password :</label>
         <input value={password} onChange={e=>{setPassword(e.target.value)}} className='form-control' type="password" id='password' placeholder='Password'/>
-        {validate!=''&&<div>{validate}</div>}
-        <input  type="submit" className='btn btn-dark' />
+        {validate !== ''&&<div>{validate}</div>}
+        <input  type="submit" className='btn btn-dark w-50 mx-auto' />
         
       </form>
     </div>
