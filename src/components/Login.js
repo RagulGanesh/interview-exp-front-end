@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "../static/style.css"
 import { Link, useNavigate } from 'react-router-dom';
 export const Login = () => {
   const [rollno,setRollno]=useState('');
@@ -37,7 +38,7 @@ export const Login = () => {
         <input type="submit" className='btn btn-dark' />
         <div className='d-flex'>
         <p>Not a registered User ?</p>
-        <Link to="/signup">Sign Up</Link>
+        <Link className="red" to="/signup">Sign Up</Link>
         </div>
         
       </form>
