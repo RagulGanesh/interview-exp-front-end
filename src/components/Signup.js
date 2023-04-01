@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import "../static/Signup.css"
 import "../static/utils.css"
 import  image from "../static/img/signupbg.jpg"
+
 
 export const Signup = () => {
     const [username,setUsername]=useState('');
@@ -70,6 +71,7 @@ export const Signup = () => {
         <input  type="submit" className='btns' />
         
       </form>
+      <p>Already Have an Account ? <Link to='/login'>Login</Link></p>
       </div>
     </div>
     </>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import parse from 'html-react-parser'
 
 export const PostPayload = (props) => {
@@ -10,8 +10,16 @@ export const PostPayload = (props) => {
   const [tags, setTags] = useState([]);
   const [createdAt, setCreatedAt] = useState('');
   const [rollno, setRollno] = useState('');
-  
+  const Navigate=useNavigate();
   const getPost = async () => {
+  
+      if(!localStorage.getItem('token')){
+        Navigate('/login');
+        return;
+      }
+    
+  
+   
     const response = await fetch(`http://localhost:4000/post/${postid}`, {
       method: 'GET',
       headers: {

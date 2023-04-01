@@ -8,6 +8,7 @@ import { Profile } from './components/Profile';
 import { PostPayload } from './components/PostPayload';
 import { Newpost } from './components/Newpost';
 import { Newsfeed } from './components/Newsfeed';
+import { FakeHome } from './components/FakeHome';
 // import { Rough } from './components/Rough';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/home/createpost' element={<Newpost />} />
         <Route path='/home/post/:postid' element={<PostPayload />} />
       </Route>
+      <Route exact path='/' element={<FakeHome/>}/>
 
     </Routes>
 

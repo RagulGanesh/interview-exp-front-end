@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { Post } from './Post';
 
 export const Profile = (props) => {
@@ -8,8 +8,13 @@ export const Profile = (props) => {
     // const [rollno,setRollno]=useState('');
     const [posts,setPosts]=useState([]);
     const [email,setEmail]=useState('');
+    const Navigate=useNavigate();
     let {rollno}=useParams();
     const getuser=async()=>{
+      if(!localStorage.getItem('/token')){
+        Navigate('/login');
+        return;
+      }
         const response=await fetch(`http://localhost:4000/user/${rollno}`,{
           method: 'GET',
           headers: {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import { useNavigate } from 'react-router-dom';
@@ -41,6 +41,17 @@ export const Newpost = () => {
       alert("Failed")
     }
   }
+  const checkLogin=()=>{
+    if(!localStorage.getItem('token')){
+      Navigate('/login');
+      return;
+    }
+  }
+
+  useEffect(()=>{
+    checkLogin();
+  },[])
+
   return (
     <form onSubmit={handleSubmit} className='m-2'>
       <label htmlFor="title">Title :</label>
