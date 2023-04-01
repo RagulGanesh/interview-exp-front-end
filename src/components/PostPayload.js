@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import parse from 'html-react-parser'
+import "../static/PostPayload.css"
+import user_pic from "../static/img/user.jpg"
 
 export const PostPayload = (props) => {
   let { postid } = useParams();
@@ -41,15 +43,28 @@ export const PostPayload = (props) => {
     getPost();
   }, [])
   return (
-    <>
-      <div>
-        <h2>{title}</h2>
-        <p>written by {username} <Link to={`/home/user/${rollno}`}>{rollno}</Link> at {createdAt} </p>
-        <p>Tags : {tags}</p>
-
-        {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quidem nihil labore quia sed repellendus odio tenetur commodi animi atque nobis neque laudantium, accusantium quo. Recusandae, eum aliquam tempora dolorum aut aspernatur fugit corrupti facilis, assumenda provident quisquam expedita quia non at tenetur et veritatis adipisci optio minus perspiciatis temporibus facere mollitia nobis vero! Beatae iusto quisquam autem provident assumenda nihil dolor magnam repudiandae ut mollitia illo error unde distinctio atque maxime aperiam dolorem aliquid cum vero repellendus ad, minus maiores. Nam placeat esse expedita totam, similique in suscipit quas eos officiis fugiat ab tenetur unde accusantium, dolores, ipsa velit?</p> */}
-        <p>{content}</p>
+    <div className='p-vessel'>
+      <div className='vessel'>
+        <div className='row-1'>
+          <Link className='row-1a' to="/home">back</Link>
+          <h2 className='row-1b'>{title}</h2>
+        </div>
+        <div className='row-2'>
+          <div className='row-2a'>
+            <img src={user_pic} alt="user"></img>
+            <p>{username} <Link style={{"padding" : "1px 7px 1px 1px"}} to={`/home/user/${rollno}`}>{rollno}</Link> at {createdAt} </p>
+          </div>
+          <div className='row-2c'>
+            <span className='desc'>Description</span>
+            <div className='content-box'>
+              <p>{content}</p>
+            </div>
+          </div>
+          <div className='row-2b'>
+            <p className='tags'>#{tags}</p>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
