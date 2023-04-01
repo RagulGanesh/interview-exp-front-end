@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Post } from "./Post";
+import "../static/utils.css" 
+import "../static/Newfeed.css" 
+
 
 export const Newsfeed = () => {
   const [posts, setPosts] = useState([]);
@@ -48,18 +51,20 @@ export const Newsfeed = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-center">
-        <input
+      <div className="search">
+      <input value={search} onChange={(e) => {
+            setSearch(e.target.value);
+          }} type="text" placeholder="Search.." name="search"/>
+      <button onClick={handleClick} type="submit"><i class="fa fa-search"></i></button>
+        {/* <input
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
           }}
           type="text"
           className="form-control w-50 my-5"
-        />
-        <button onClick={handleClick} className="btn btn-success my-5 mx-3">
-          Search
-        </button>
+        /> */}
+        {/* <button onClick={handleClick} type="submit" className="btn_search"><i class="fa fa-search"></i></button> */}
         {/* <button className='btn btn-danger my-5'>Filter</button> */}
       </div>
 

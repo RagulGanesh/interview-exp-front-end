@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "../static/Login.css"
 import "../static/utils.css"
+import  image from "../static/img/signupbg.jpg"
 
 import { Link, useNavigate } from 'react-router-dom';
 export const Login = () => {
@@ -29,22 +30,25 @@ export const Login = () => {
           }
   }
   return (
-
-    <div className='mt-5 d-flex flex-column  justify-content-center container w-50 border border-dark p-3 border-2 rounded'>
+    <>
+    <img className=""src={image} alt="" />
+    <div className='cont mt-5 d-flex flex-column bg_col justify-content-center container border p-3 border-2'>
       <h1 className='text-center'>Login</h1>
-      <form onSubmit={handleSubmit} className='d-flex flex-column gap-3 justify-content-between'>
+      <div className="container con">
+      <form onSubmit={handleSubmit} className='formFlex'>
         <label htmlFor="rollno">Roll No :</label>
-        <input value={rollno} onChange={e=>{setRollno(e.target.value)}} className='form-control' type="text" id='rollno' placeholder='Enter Your Roll No'/>
+        <input value={rollno} onChange={e=>{setRollno(e.target.value)}} className='inp' type="text" id='rollno' placeholder='Enter Your Roll No'/>
         <label htmlFor="password">Password :</label>
-        <input value={password} onChange={e=>{setPassword(e.target.value)}} className='form-control' type="text" id='password' placeholder='Password'/>
-        <input type="submit" className='btn btn-dark' />
+        <input value={password} onChange={e=>{setPassword(e.target.value)}} className='inp' type="text" id='password' placeholder='Password'/>
+        <input type="submit" className='btns' />
         <div className='d-flex'>
         <p>Not a registered User ?</p>
-        <Link className="red" to="/signup">Sign Up</Link>
-        </div>
-        
+        <Link to="/signup">Sign Up</Link>
+        </div>        
       </form>
+      </div>
     </div>
+    </>
 
    
   )

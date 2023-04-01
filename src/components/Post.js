@@ -1,6 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import parse from 'html-react-parser'
+import "../static/utils.css"
+import "../static/Post.css"
+import { Link } from 'react-router-dom'
 
 export const Post = (props) => {
   const Navigate = useNavigate();
@@ -8,10 +11,15 @@ export const Post = (props) => {
     Navigate(`/home/post/${props.id}`)
   }
   return (
-    <div className='border border-dark m-2 p-2 rounded-2'>
+    <>
+    <div className="container">
+    <div className='cont bg_col post_cont'>
         <h6>{props.title}</h6>
         <p>{parse(props.content)}</p>
-        <button onClick={handleClick} className='btn btn-primary'>Read More</button>
+        <div className="read"><button onClick={handleClick} className='btns_link'>Read More</button></div>
+        {/* <Link onClick={handleClick}>Read More</Link> */}
     </div>
+    </div>
+    </>
   )
 }

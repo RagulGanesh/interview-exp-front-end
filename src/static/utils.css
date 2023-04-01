@@ -11,3 +11,10 @@
     font-family: 'Roboto', sans-serif;
     border: none;
 }
+.inp{
+    width: 80%;
+    padding: 5px;
+    padding-left: 18px;
+    border-radius: 10px;
+    border: none;
+}

@@ -57,7 +57,6 @@ export const Signup = () => {
     <div className='cont mt-5 d-flex flex-column bg_col justify-content-center container border p-3 border-2'>
       <h1 className='text-center'>Sign Up</h1>
       <div className="container con">
-
       <form onSubmit={handleSubmit} className='formFlex'>
         <label htmlFor="name">User Name :</label>
         <input value={username} onChange={e=>{setUsername(e.target.value)}} type="text" id='name'  className="inp" placeholder='Enter your name' />
