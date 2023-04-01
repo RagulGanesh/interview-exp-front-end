@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 .bg_col{
-    background-color: aquamarine;
+    background-color: #D3E0EA;
+}
+.btns{
+    color: white;
+    background-color: #276678;
+    border-radius: 35px;
+    padding: 12px 2px;
+    font-family: 'Roboto', sans-serif;
+    border: none;
 }

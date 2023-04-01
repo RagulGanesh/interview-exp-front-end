@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "../static/Signup.css"
 import "../static/utils.css"
+import  image from "../static/img/signupbg.jpg"
 
 export const Signup = () => {
     const [username,setUsername]=useState('');
@@ -51,21 +52,27 @@ export const Signup = () => {
        
     }
   return (
+    <>
+    <img className=""src={image} alt="" />
     <div className='cont mt-5 d-flex flex-column bg_col justify-content-center container border p-3 border-2'>
       <h1 className='text-center'>Sign Up</h1>
-      <form onSubmit={handleSubmit} className='d-flex flex-column gap-3 justify-content-between'>
+      <div className="container con">
+
+      <form onSubmit={handleSubmit} className='formFlex'>
         <label htmlFor="name">User Name :</label>
-        <input value={username} onChange={e=>{setUsername(e.target.value)}} type="text" id='name' className='form-control' placeholder='Enter your name' />
+        <input value={username} onChange={e=>{setUsername(e.target.value)}} type="text" id='name'  className="inp" placeholder='Enter your name' />
         <label htmlFor="rollno">Roll No :</label>
-        <input value={rollno} onChange={e=>{setRollno(e.target.value)}} className='form-control' type="text" id='rollno' placeholder='Enter Your Roll No'/>
+        <input value={rollno} onChange={e=>{setRollno(e.target.value)}} type="text" id='rollno' className="inp" placeholder='Enter Your Roll No'/>
         <label htmlFor="email">Email :</label>
-        <input value={email} onChange={e=>{setEmail(e.target.value)}} className='form-control' type="text" id='email' placeholder='Enter Your Email'/>
+        <input value={email} onChange={e=>{setEmail(e.target.value)}} type="text" id='email' className="inp" placeholder='Enter Your Email'/>
         <label htmlFor="password">Password :</label>
-        <input value={password} onChange={e=>{setPassword(e.target.value)}} className='form-control' type="password" id='password' placeholder='Password'/>
+        <input value={password} onChange={e=>{setPassword(e.target.value)}} type="password" className="inp" id='password' placeholder='Password'/>
         {validate !== ''&&<div>{validate}</div>}
-        <input  type="submit" className='btn btn-dark w-50 mx-auto' />
+        <input  type="submit" className='btns' />
         
       </form>
+      </div>
     </div>
+    </>
   )
 }
