@@ -33,7 +33,7 @@ export const Login = () => {
     <>
     <img className=""src={image} alt="" />
     <div className='cont mt-5 d-flex flex-column bg_col justify-content-center container border p-3 border-2'>
-      <h1 className='text-center'>Login</h1>
+      <h1 className='text-center' style={{"overflow" : "hidden"}}>Login</h1>
       <div className="container con">
       <form onSubmit={handleSubmit} className='formFlex'>
         <label htmlFor="rollno">Roll No :</label>

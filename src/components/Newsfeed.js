@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Post } from "./Post";
-import "../static/utils.css" 
-import "../static/Newfeed.css" 
+import "../static/utils.css"
+import "../static/Newfeed.css"
+import { useNavigate } from "react-router-dom";
 
 
 export const Newsfeed = () => {
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("");
-
+  const Navigate = useNavigate();
   const handleClick = async (e) => {
     e.preventDefault();
     const response = await fetch("http://localhost:4000/search", {
@@ -26,6 +27,10 @@ export const Newsfeed = () => {
   };
 
   const getposts = async () => {
+    if(!localStorage.getItem('token')){
+      Navigate('/login');
+      return ;
+    }
     const response = await fetch(`http://localhost:4000/getAllPosts`, {
       method: "GET",
       headers: {
@@ -52,10 +57,10 @@ export const Newsfeed = () => {
   return (
     <>
       <div className="search">
-      <input value={search} onChange={(e) => {
-            setSearch(e.target.value);
-          }} type="text" placeholder="Search.." name="search"/>
-      <button onClick={handleClick} type="submit"><i class="fa fa-search"></i></button>
+        <input value={search} onChange={(e) => {
+          setSearch(e.target.value);
+        }} type="text" placeholder="Search.." name="search" />
+        <button onClick={handleClick} type="submit"><i class="fa fa-search"></i></button>
         {/* <input
           value={search}
           onChange={(e) => {
