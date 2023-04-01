@@ -27,6 +27,14 @@ img{
     font-family: 'roboto','sans serif';
     
 }
+.logttl{
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: 1px;
+    font-weight: bolder;
+}
+.formFlex label{
+    font-size: 20px;
+}
 .con{
     padding-left: 15%;
 }

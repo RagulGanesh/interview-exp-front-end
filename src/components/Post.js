@@ -14,8 +14,8 @@ export const Post = (props) => {
     <>
       <div className="container">
         <div className='cont bg_col post_cont box'>
-          <h4>{props.title}</h4>
-          <p>{parse(props.content)}</p>
+          <h4 className='ttl'>{props.title}</h4>
+          <p className='desc'>{parse(props.content)}</p>
           <div className="read"><button onClick={handleClick} className='btns_link'>Read More</button></div>
           {/* <Link onClick={handleClick}>Read More</Link> */}
         </div>

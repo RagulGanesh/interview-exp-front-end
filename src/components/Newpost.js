@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import { useNavigate } from 'react-router-dom';
-
+import "../static/NewPost.css"
 
 
 export const Newpost = () => {
@@ -41,28 +41,35 @@ export const Newpost = () => {
       alert("Failed")
     }
   }
-  const checkLogin=()=>{
-    if(!localStorage.getItem('token')){
+  const checkLogin = () => {
+    if (!localStorage.getItem('token')) {
       Navigate('/login');
       return;
     }
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     checkLogin();
-  },[])
+  }, [])
 
   return (
-    <form onSubmit={handleSubmit} className='m-2'>
-      <label htmlFor="title">Title :</label>
-      <input value={title} onChange={e => { setTitle(e.target.value) }} className=' m-2 form-control' id='title' type="text" placeholder='Enter Title' />
-      <label htmlFor="tags">Tags :</label>
-      <input value={tags} onChange={e => { setTags(e.target.value) }} className=' m-2 form-control' id='tags' type="text" placeholder='Enter tags in comma seperated values' />
-      <div className='m-2'>
-
-        <ReactQuill value={content} onChange={e => { setContent(e) }} />
+    <div className='Main-cont'>
+      <div className='cont-form'>
+        <center>
+          <h3>Create a New Post!</h3>
+        </center>
+        <form onSubmit={handleSubmit} className='m-2 form-cont'>
+          <label htmlFor="title">Title :</label>
+          <input value={title} onChange={e => { setTitle(e.target.value) }} className=' m-2 form-control' id='title' type="text" placeholder='Enter Title' />
+          <label htmlFor="tags">Tags :</label>
+          <input value={tags} onChange={e => { setTags(e.target.value) }} className=' m-2 form-control' id='tags' type="text" placeholder='Enter tags in comma seperated values' />
+          <label htmlFor="tags">Description :</label>
+          <div className='m-2'>
+            <ReactQuill value={content} onChange={e => { setContent(e) }} />
+          </div>
+          <input type="submit" className='btn create-btn'/>
+        </form>
       </div>
-      <input type="submit" className='btn btn-primary' />
-    </form>
+    </div>
   )
 }
