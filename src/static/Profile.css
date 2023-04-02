@@ -27,5 +27,7 @@
     letter-spacing: 1rem;
 }
 .postsList{
+    /* background-color: aquamarine; */
     margin-top: 2rem;
+    margin-left: 20rem;
 }

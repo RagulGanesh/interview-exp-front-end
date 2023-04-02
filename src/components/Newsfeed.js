@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Post } from "./Post";
 import "../static/utils.css"
-import "../static/Newfeed.css"
+import "../static/Newsfeed.css"
 import { useNavigate } from "react-router-dom";
 
 
@@ -27,9 +27,9 @@ export const Newsfeed = () => {
   };
 
   const getposts = async () => {
-    if(!localStorage.getItem('token')){
+    if (!localStorage.getItem('token')) {
       Navigate('/login');
-      return ;
+      return;
     }
     const response = await fetch(`http://localhost:4000/getAllPosts`, {
       method: "GET",
@@ -73,8 +73,20 @@ export const Newsfeed = () => {
         {/* <button className='btn btn-danger my-5'>Filter</button> */}
       </div>
 
-      <div>
-        <div>
+      <div className="boxx">
+        <div className="boxx-1">
+          <button class="btn butt" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Filter Company</button>
+          <div class="offcanvas offcanvas-start sidebar" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <p>Try scrolling the rest of the page to see this option in action.</p>
+            </div>
+          </div>
+        </div>
+        <div className="boxx-2">
           {posts.map((post) => {
             return (
               <Post
